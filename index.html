@@ -139,14 +139,14 @@ document.location.href = 'http://olsn.ent.sirsidynix.net/client/powassan/search/
 
 
      
-    <body>
+    <body vocab="http://schema.org/" typeof="Library">
     
     <section class="hide" id="sizer"></section>
     
     <section class="hide" id="button-bar">
-    <a href="https://www.facebook.com/powassanlibrary"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/facebook.png" alt="facebook"></a>
-     <a href="https://www.twitter.com/powassanlibrary"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/twitter.png" alt="twitter"></a>
-     <a href="http://www.youtube.com/channel/UCx4FVQs3nfuLawgP9Zd6d0Q"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/youtube.png" alt="youtube"></a>
+    <a href="https://www.facebook.com/powassanlibrary" property="url"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/facebook.png" alt="facebook"></a>
+     <a href="https://www.twitter.com/powassanlibrary" property="url"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/twitter.png" alt="twitter"></a>
+     <a href="http://www.youtube.com/channel/UCx4FVQs3nfuLawgP9Zd6d0Q" property="url"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/youtube.png" alt="youtube"></a>
 	<!--Email automatically pulled as long as it's in OPLD-->
     <a href="mailto:powlib@onlink.net?Subject=Email from a website visitor"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/mail.png" alt="email the library"></a>      
     </section>
@@ -277,19 +277,21 @@ document.location.href = 'http://olsn.ent.sirsidynix.net/client/powassan/search/
 
                            
                             <ul> 
-                          		324 Clark Street<br>
-                                Powassan,&nbsp;ON<br>
-                                P0H 1Z0<br>
-                                <a href="tel:(705) 724-3618">(705) 724-3618</a><br>
+                            <span property="address" typeof="PostalAddress">
+                                <span property="streetAddress">324 Clark Street</span><br>
+                                <span property="addressLocality">Powassan</span>,&nbsp;<span property="addressRegion">ON</span><br>
+                                <span property="postalCode">P0H 1Z0</span><br>
+                            </span>
+                            <span property="telephone"><a href="tel:(705) 724-3618">(705) 724-3618</a></span><br>
                             
                             
 							<details><summary>Hours</summary><br>
-								Mon/lun 11:00-7:00<BR>
-Tues/mar 11:00-7:00<BR>
+<time property="openingHours" content="Mo 11:00-19:00">Mon/lun 11:00-7:00</time><BR>
+<time property="openingHours" content="Tu 11:00-19:00">Tues/mar 11:00-7:00</time><BR>
 Wed/mer closed/fermé<BR>
-Thurs/jeu 11:00-7:00<BR>
-Fri/ven 11:00-6:00<BR>
-Sat/sam 11:00-3:30<BR>
+<time property="openingHours" content="Th 11:00-19:00">Thurs/jeu 11:00-7:00</time><BR>
+<time property="openingHours" content="Fr 11:00-18:00">Fri/ven 11:00-6:00</time><BR>
+<time property="openingHours" content="Sa 11:00-15:30">Sat/sam 11:00-3:30</time><BR>
 Sun/dim closed/fermé
 							</details>
 
@@ -358,7 +360,7 @@ Sun/dim closed/fermé
                          <details><summary>Hours & Locations</summary>
                         <ul>  
                             
-                            <h3>Powassan and District Union </h3>
+                            <h3 property="name">Powassan and District Union</h3>
                           		324 Clark Street<br>
                                 Powassan,&nbsp;ON<br>
                                 P0H 1Z0<br>
