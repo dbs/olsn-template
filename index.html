@@ -1,0 +1,414 @@
+<!--
+INSTRUCTIONS
+
+1.To crop images use this code:    
+  		 <div class="focal-point left-5 down-3">
+ 				<div><img src="img/header.png" alt="logo"></div>
+           </div>
+2. Add cushycms class to areas you want clients to edit and add editor account to cushyCMS for client. 
+3. Change the OPLD library ID in the variable
+4. JASI libraries: change the enterprise search string library name and enable the new book scroller.
+
+-->  
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+<head>
+<title>Powassan & District Union Public Library</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial scale=1.0">
+
+<!-- forces IE to use it's native mode -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+
+
+<link rel="stylesheet" href="css/horizontal_rwd.css" />
+
+
+<!--Google analytics tracking. Copy/paste this line into each page to be tracked -->
+<script type="text/javascript" src="includes/analytics.js"></script>
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jquery-color.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+<script type="text/javascript" src="js/jquery.jfontsizer.min.js"></script>
+<script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+<script type="text/javascript" src="js/fancydropdown.js"></script>
+<script type="text/javascript" src="js/jquerypp.custom.js"></script>
+<!--Script for hours slider-->
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+<!--Scripts to read Google Calendar-->
+<script type="text/javascript" src="js/jquery.googlecalreader-1.0.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+        google.load("gdata", "1.x", { packages: ["calendar"] });
+</script> 
+<script type="text/javascript">
+   jQuery(function ($) {
+       $.gCalReader({
+		   		  //Enter the calendar ID in between the feeds/  and  /public
+                  feedUri: 'https://www.google.com/calendar/ical/ami4h2ao0g8brkj6d80v8acd94%40group.calendar.google.com/public/basic.ics',
+                  maxresults: 1
+		        });
+		    });
+		
+		
+</script>
+
+<!-- facebook script -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+</head>
+
+
+
+
+
+<script type="text/javascript">
+
+$(window).load(function() {
+	//Load Hours Slider
+    $("#hours-slider").flexisel({
+        visibleItems: 3,
+        animationSpeed: 4000,
+        autoPlay: true,
+		clone: true,
+        autoPlaySpeed: 2000,            
+        pauseOnHover: true,
+        enableResponsiveBreakpoints: true,
+        responsiveBreakpoints: { 
+           
+            tablet: { 
+                changePoint:1200,
+                visibleItems: 1
+            }
+        }	
+    });
+	   
+		//Load main content
+		$(".topContent").load("home.asp");
+		
+	
+		
+		
+		//Load Font Sizer
+		$('#sizer').jfontsizer({
+		applyTo: '.content',
+		changesmall: '2',
+		changelarge: '2',
+		expire: 30
+	});
+
+
+    
+});
+//Enterprise Search
+function search_cat()
+{
+search = document.getElementById('search').value
+document.location.href = 'http://olsn.ent.sirsidynix.net/client/powassan/search/results?qu='+ search +'&te=ILS';	 //IMPORTANT - change the library
+}
+</script>
+
+
+     
+    <body>
+    
+    <section class="hide" id="sizer"></section>
+    
+    <section class="hide" id="button-bar">
+    <a href="https://www.facebook.com/powassanlibrary"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/facebook.png" alt="facebook"></a>
+     <a href="https://www.twitter.com/powassanlibrary"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/twitter.png" alt="twitter"></a>
+     <a href="http://www.youtube.com/channel/UCx4FVQs3nfuLawgP9Zd6d0Q"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/youtube.png" alt="youtube"></a>
+	<!--Email automatically pulled as long as it's in OPLD-->
+    <a href="mailto:powlib@onlink.net?Subject=Email from a website visitor"><img height="32" width="32" src="http://www.olsn.ca/global/global_img/mail.png" alt="email the library"></a>      
+    </section>
+    
+    
+    <!-- HEADER -->
+    <header class="mainHeader">  
+               <img src="img/full.png" class="full" alt="Full Public Library Logo">
+               <img src="img/landscape.png" class="tablet" alt="Landscape Public Library Logo">
+               <img src="img/portrait.png" class="mobile" alt="portrait Public Library Logo">
+               
+            
+            
+                  
+        <!--NAV-->
+         <nav class="animenu">	
+            <input type="checkbox" id="button">
+            <label for="button" onclick>Menu</label>
+             <!-- the hide class will remove these items from the menu when on mobile device -->
+            <ul>
+                               
+                <li><a href="?id=home.asp&label=Home" alt="home">Home</a></li>
+                <li class="cushycms"><a href="#" alt="groups">Groups</a>
+                	<ul>
+                        <li><a href="?id=art.asp&label=Art" alt="artgroup">Art</a></li>
+                        <li><a href="?id=bookclub.asp&label=BookClub" alt="bookclub">Book Club</a></li>
+                        <li><a href="?id=cybercamp.asp&label=CyberCamp" alt="cybercamp">Cyber Camp</a></li>
+                        <li><a href="?id=french.asp&label=French" alt="french">French</a></li>
+                        <li><a href="?id=friends.asp&label=Friends" alt="friends">Friends of the Library</a></li>
+                        <li><a href="?id=genealogy.asp&label=Genealogy" alt="genealogy">Genealogy</a></li>
+                        <li><a href="?id=knitting.asp&label=Knitting" alt="knitting">Knitting</a></li>
+                        <li><a href="?id=lego.asp&label=Lego" alt="lego">Lego Club</a></li>
+                    	<li><a href="?id=readers.asp&label=RaisingReaders" alt="staff">Raising Readers</a></li>
+                        <li><a href="?id=rughooking.asp&label=Rughooking" alt="rughooking">Rughooking</a></li>
+                        <li><a href="?id=scrabble.asp&label=Scrabble" alt="scrabble">Scrabble</a></li>
+                        <li><a href="?id=teens.asp&label=Teen" alt="teen">Teens</a></li>
+                        <li><a href="?id=yoga.asp&label=Yoga" alt="yoga">Yoga</a></li>                       
+                        <li><a href="?id=toddlertales.asp&label=ToddlerTales" alt="Toddler Tales">ToddlerTales</a></li>
+                        <li><a href="?id=homeschool.asp&label=HomeSchool" alt="homeschool hour">Homeschool Hour</a></li>
+                        <li><a href="?id=chess.asp&label=Chess" alt="chess">Chess</a></li>
+                        <li><a href="?id=computercoaching.asp&label=ComputerCoaching" alt="computer coaching">Computer Coaching</a></li>
+                        <li><a href="?id=loom.asp&label=LoomClub" alt="Loom Club">Elastic Loom Club</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" alt="events">Events</a>
+                    <ul>
+                    <li><a href="?id=specialevents.asp&label=SpecialEvents" alt="specialevents">Special Events</a></li>
+					<li><a href="?id=fundraisingevents.asp&label=FundraisingEvents" alt="fundraisingevents">Fundraising Events</a></li>
+                    </ul>
+                
+                </li>
+                <li><a href="http://www.olsn.ca/e-resource/search.asp?library=powassan" alt="eresources">EResources</a></li>
+                <li><a href="#" alt="links">Links</a>
+                <ul>
+                <li><a href="?id=communitylinks.asp&label=Links" alt="links">Community</a></li>
+                </ul>
+                
+                </li>
+                              
+                <li><a href="?id=contact.asp&label=Contact" alt="contactus">Contact Us</a>
+                                 
+                </li>
+                 
+            </ul>
+         </nav>    
+        <!-- end of NAV -->
+        
+  
+        
+     
+          <section class="hoursContent">
+              <article><span class="tdhourstxt">Today's hours:&nbsp; </span>   
+                <ul id="hours-slider">
+                       
+                        
+                        <li>
+                        <!-- alter's display name as "Markstay-Warren" is not a branch name -->
+						Powassan and District Union  </li>
+                        
+                        <!-- end alter -->
+                    
+                             
+                        </ul> 
+                            
+                            
+              </article>
+         </section>
+        
+    </header>
+        <!-- End of HEADER -->
+        
+        
+      
+        
+    <!-- MAIN CONTENT. This is used only for the articles. -->
+          <section class="searchContent">
+        
+                <span class="hide">Search Our Catalog </span>
+                <input type="text"  title=" material at your library search button" name="search" class="search" id="search" placeholder="Search the Powassan Public Library's online catalog"/>
+                  <input type="submit" value="Search" alt="search" src="img/search-button.png"  onClick="search_cat()" />
+               
+                
+           
+         </section>
+         
+   		
+       <section class="full"> 
+         <section class="mainContent">		
+
+           		<div class="content">
+                <!-- menu item links content are loaded into "topContent" article -->
+              		  <article class="topContent"></article>  
+           		 </div>
+   		 </section>
+    <!-- end of MAIN CONTENT -->
+        
+   
+   
+   
+    <!-- start of SIDEBARS -->
+    <!--NOTE: The content of these sidebars should not be directly related to the articles they are located near. When viewed on small screens they stack below the content. -->
+   
+    <aside class="topSidebar">
+                
+                           <h2>Hours & Location</h2>
+                         
+                            
+
+                           
+                            <ul> 
+                          		324 Clark Street<br>
+                                Powassan,&nbsp;ON<br>
+                                P0H 1Z0<br>
+                                <a href="tel:(705) 724-3618">(705) 724-3618</a><br>
+                            
+                            
+							<details><summary>Hours</summary><br>
+								Mon/lun 11:00-7:00<BR>
+Tues/mar 11:00-7:00<BR>
+Wed/mer closed/fermé<BR>
+Thurs/jeu 11:00-7:00<BR>
+Fri/ven 11:00-6:00<BR>
+Sat/sam 11:00-3:30<BR>
+Sun/dim closed/fermé
+							</details>
+
+                            
+                               
+                      </ul>  
+         
+    </aside>
+     
+    
+            
+    <aside class="bottomSidebar">
+    <article>
+        <h2><a href="https://www.google.com/calendar/embed?title=Library%20Events&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showTz=0&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=powlib%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FToronto" target="_blank">Calendar</a></h2>
+    	 
+          
+      </article>
+      <article>
+      
+      <h2><a href="http://olsn.ent.sirsidynix.net/client/powassan" target="_blank">New Additions</a></h2>
+      </article>
+      
+      
+       <article >
+        
+           <a href="http://sols.mabiblionumerique.ca/en/login_001024.aspx" target="_blank"><img src="img/archambault.png" alt="archambault" width="175" height="32" border="0"></a><a href="http://downloadcentre.library.on.ca/8205D955-2F2D-4426-9C6E-A66298B7378B/10/50/en/Default.htm" target="_blank"><img src="img/OD_notagline_logo.png" alt="overdrive" width="175" height="49" border="0"></a>
+
+        </article>
+        
+            
+            
+    </aside>   
+    
+    <!--
+    <aside class="bottomSidebar">
+       
+    </aside>   
+    --> 
+   
+    </section>
+    
+    
+    
+  
+  
+  
+    <!-- MOBILE         ------------------------------------------------------------------------------------------------------------------------------>
+    <section class="mobile">
+     <section class="mainContent">		
+
+           		<div class="Bar">
+                <!-- menu item links content are loaded into "topContent" article -->
+              		 <details><summary>Home</summary><article class="topContent"></article>  </details>
+           		 </div>
+   		 </section>
+    <!-- end of MAIN CONTENT -->
+        
+   
+   
+   
+    <!-- start of SIDEBARS -->
+    <!--NOTE: The content of these sidebars should not be directly related to the articles they are located near. When viewed on small screens they stack below the content. -->
+   
+    <div class="Bar">
+               
+                         <details><summary>Hours & Locations</summary>
+                        <ul>  
+                            
+                            <h3>Powassan and District Union </h3>
+                          		324 Clark Street<br>
+                                Powassan,&nbsp;ON<br>
+                                P0H 1Z0<br>
+                                <a href="tel:(705) 724-3618">(705) 724-3618</a><br>
+                            
+                            
+                            <details><summary>Hours</summary><br>
+                             Mon/lun 10:30-8:00<BR>
+Tues/mar 10:30-8:00<BR>
+Wed/mer closed/fermé<BR>
+Thurs/jeu 10:30-8:00<BR>
+Fri/ven 10:30-6:00<BR>
+Sat/sam 10:30-3:30<BR>
+Sun/dim closed/fermé</details>
+                               
+                      </ul>  </details>
+         
+    </div>
+     
+    
+            
+    <div class="Bar">
+        <details><summary>Events</summary><article class="events"></article></details>  
+    </div>   
+     
+        
+
+    
+    </section> 
+    
+    
+    <!-- end of SIDEBARS -->
+    
+    
+    
+        
+     <!-- Enterprise New Books Scroller placeholder 
+      <footer class="mainBookScroller">
+        <p>Enterprise Book Scroller container</p>
+      </footer>   --> 
+        
+    <!-- start of FOOTER -->
+    <footer class="mainFooter">
+        <p>Powassan and District Union Public Library&nbsp;2015<br>
+        This website meets WCAG 2.0 (Level AA) Compliance. <br>
+        <strong>Developed by Ontario Library Service North</strong></p> 
+    </footer>
+    
+<!-- end of FOOTER -->   
+
+</body>
+
+</html>
